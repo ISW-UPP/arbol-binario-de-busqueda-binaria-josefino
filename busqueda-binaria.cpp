@@ -36,7 +36,21 @@ int main(){
 	return 0;
 }
 
-
+/*
+array ConvArregloArbol(int size)
+{
+	int[size] array = new int[size]; 
+	int index = 0; 
+	void ConvArregloArbol(node root) 
+	{ 
+	if (node == null) 
+		return; 
+	ConvArregloArbol(root.leftChild()); 
+	array[index++] = root.value; 
+	ConvArregloArbol(root.rightChild()); 
+	
+}
+*/
 bool BusquedaBinaria(Nodo *arbol, int x)
 {
 	int numeros[] = { 1,3,6,8,9,15};
@@ -71,16 +85,7 @@ bool BusquedaBinaria(Nodo *arbol, int x)
 		i++;
 	}
 
-	if (band == true)
-	{
-		cout << "El numero se encontro en la posicion: " << mitad << endl; // mitad guarda las posiciones
-	}
-	else
-	{
-		cout << "El numero no se encontro";
-	}
-	return 0;
-	
+	return band;
 }
 
 void menu(){
@@ -143,7 +148,7 @@ void menu(){
 			case 5:
 				cout << "\nIngresa el elemento a buscar: ";
 				cin >> x;
-				if (BusquedaSecuencial(arbol,x) == true){
+				if (BusquedaBinaria(arbol,x) == true){
 					cout << "\nElemento se encuentra en el arbol";
 				}
 				else{
