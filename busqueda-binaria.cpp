@@ -28,6 +28,7 @@ void destruirNodo(Nodo*);
 
 
 Nodo* arbol = NULL;
+int tama = 0;
 
 
 int main(){
@@ -36,24 +37,22 @@ int main(){
 	return 0;
 }
 
-/*
-array ConvArregloArbol(int size)
-{
-	int[size] array = new int[size]; 
-	int index = 0; 
-	void ConvArregloArbol(node root) 
-	{ 
-	if (node == null) 
-		return; 
-	ConvArregloArbol(root.leftChild()); 
-	array[index++] = root.value; 
-	ConvArregloArbol(root.rightChild()); 
-	
+int numeros[100]; 
+int index = 0; 
+
+void ConvArregloArbol(Nodo *arbol, int cont) 
+{ 
+	ConvArregloArbol(arbol->derecha, cont + 1);
+		for (int i = 0; i < cont; i++){ 
+			numeros[index++] = arbol->x;
+		}
+		//cout << arbol->x << endl;
+		visualizarArbol(arbol->izquierda, cont + 1);
 }
-*/
-bool BusquedaBinaria(Nodo *arbol, int x)
+
+bool BusquedaBinaria(Nodo *arbol, int x, int tama)
 {
-	int numeros[] = { 1,3,6,8,9,15};
+	ConvArregloArbol(arbol, tama);
 	int inf, sup, mitad, i;
 
 	bool band = false;
@@ -148,7 +147,9 @@ void menu(){
 			case 5:
 				cout << "\nIngresa el elemento a buscar: ";
 				cin >> x;
-				if (BusquedaBinaria(arbol,x) == true){
+				cout << "\nIngresa el tamaño del arbol: ";
+				cin >> tama;
+				if (BusquedaBinaria(arbol,x,tama) == true){
 					cout << "\nElemento se encuentra en el arbol";
 				}
 				else{
